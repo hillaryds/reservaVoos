@@ -1,13 +1,13 @@
 """ Comando Principal """
 dadosVoo = {}
 voos = []
+
 def menuPrincipal():
     """
     """
-    from uteis import limpaTela 
+    from uteis import limpaTela , mostrarVoos
     from cadastra import cadastrarVoo
     from reserva import reservarVoo
-    from uteis import mostrarVoos
     print(f'Seja bem vindo, usuário ')
     while True:
         limpaTela()
@@ -20,22 +20,20 @@ def menuPrincipal():
         print('[4] Sair')
         print('-'*60)
         op = int(input('Escolha uma das opções a seguir: '))
-        try:
-            if op == 1:
-                limpaTela()
-                cadastrarVoo(voos, dadosVoo)
-            elif op == 2:
-                limpaTela()
-                reservarVoo(voos, dadosVoo)
-            elif op == 3:
-                mostrarVoos(voos, dadosVoo)
-            elif op == 4:
-                print('Espero que a Hill Airplines tenha te ajudado. Volte sempre!')
-                break
-            else:
-                print('Opção inválida')
-        except:
+        if op == 1:
+            limpaTela()
+            cadastrarVoo(voos, dadosVoo)
+        elif op == 2:
+            limpaTela()
+            reservarVoo(voos, dadosVoo)
+        elif op == 3:
+            mostrarVoos(voos, dadosVoo)
+        elif op == 4:
+            print('Espero que a Hill Airplines tenha te ajudado. Volte sempre!')
+            break
+        else:
             print('Opção inválida')
+
 
 
 
