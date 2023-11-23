@@ -5,11 +5,14 @@ def limpaTela():
     import os
     from time import sleep
     sleep(1.5)
-    print('Redirecionando...')
+    print('Redirecionando', end = '', flush = True)
+    for c in range(0, 3):
+        print('.', end = '', flush = True)
+        sleep(1)
     print()
-    sleep(1.5)
-    os.system('clear') # limpando tela
 
+    os.system('clear') # limpando tela
+ 
 def mostrarVoos( voos, dadosVoo):
     """
     Mostra na tela uma tabela com voos cadastrados:
