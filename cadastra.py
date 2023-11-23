@@ -16,4 +16,39 @@ def cadastrarVoo(voos, dadosVoo):
     
     return voos, dadosVoo
 
-        
+
+def menuCadastroUsuario(usuarios, dadosUsuario):
+    """
+    """
+    from valida import validaEmail
+    print('~-'*30)
+    print(' Cadastro de Usuário'.center(60))
+    print('~-'*30)
+    while True:
+        try:
+            nome = str(input('Digite seu primeiro nome: '))
+            if nome.strip != '':
+                dadosUsuario['Nome'] = nome.title().strip().split()[0]
+                print(dadosUsuario['Nome'])
+                email = str(input('Digite o destino do voo: ')).strip()
+                if validaEmail(email, usuarios) == True:
+                    dadosUsuario['Email'] = email
+                    senha = str(input('Digite uma senha com 8 ou mais caracteres: '))
+                    if len(senha.strip()) >= 8:
+                        dadosUsuario['Senha'] = senha
+                        dadosUsuario['Reservas'] = 0 # adcionar reservas realcionadas ao usuário.
+                        usuarios.append(dadosUsuario.copy())
+                        break
+                    else:
+                        print('-' * 60)
+                        print('Senha inválida')
+                        break
+                else:
+                    print('-' * 60)
+                    print('Email inválido ou já cadastrado!')
+                    break
+        except(ValueError, TypeError): 
+            print('Opção inválida!')
+
+    return(usuarios, dadosUsuario)
+
