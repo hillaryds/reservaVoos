@@ -1,12 +1,14 @@
 """ Comando Principal """
+
+# Variáveis globais --------------------------------------------------------------------------------------------------------
 dadosVoo = {}
 voos = []
-admin = 0 # variável que pode ser mudada nas função menuLogin
-login = False # variável que pode ser mudada nas função menuLogin caso ele tenha sido realizado ou não
-dadosAdmin = {'Nome': 'Admin',  'Email': 'admin@.com' , 'Senha': 'admin123'} #login administrador da Hill Airplines
+dadosAdmin = {'Nome': 'Admin',  'Email': 'admin@.com' , 'Senha': 'admin12'} #login administrador da Hill Airplines
 dadosUsuario = {}
 usuarios = []
-
+reservas = [] # reservas de cada voo
+reservante = {}
+# Funções de Menus ----------------------------------------------------------------------------------------------------------
 def menuInicial():
     while True:
         """
@@ -25,55 +27,71 @@ def menuInicial():
             op = int(input('Escolha uma das opções a seguir: '))
             if op == 1:
                 limpaTela()
-                menuLogin(usuarios, dadosAdmin)
-                limpaTela()
-                menuPrincipal()
+                logou = menuLogin(usuarios, dadosAdmin)
+                print(logou)
+                if logou[0] == True:
+                    if logou[1] == 1:
+                        print('logou')
+                        menuPrincipal(1)
+                    else:
+                        menuPrincipal(0)
+                else:
+                    print('n logou')
+                logou.clear()
             elif op == 2:
                 limpaTela()
                 menuCadastroUsuario(usuarios, dadosUsuario)
                 limpaTela()
-                if login:
-                    menuPrincipal()
             elif op == 3:
                 print('Espero que a Hill Airplines tenha te ajudado. Volte sempre!')
                 break
             else:
                 print('Opção inválida!')
+                limpaTela()
         except(ValueError, TypeError):
             print('Opção inválida!')
             limpaTela()
 
 
-def menuPrincipal():
+def menuPrincipal(admin):
     """
     """
-    from uteis import limpaTela , mostrarVoos
+    from uteis import limpaTela , mostrarVoos, mostrarReservas
     from cadastra import cadastrarVoo
     from reserva import reservarVoo
-    print(f'Seja bem vindo, usuário ')
+    print(admin)
     while True:
         limpaTela()
         print('~-'*30)
         print('Hill Airlines'.center(60))
         print('~-'*30)
-        print('[1] Cadastrar voos')
-        print('[2] Reservar voos')
-        print('[3] Mostrar voos')
-        print('[4] Sair')
+        if admin == 1:
+            print('[0] Cadastrar voos')
+        print('[1] Reservar voos')
+        print('[2] Mostrar voos')
+        print('[3] Sair')
+        if admin == 1:
+            print('[4] Mostrar reservas')
         print('-'*60)
         try:
             op = int(input('Escolha uma das opções a seguir: '))
+            if admin == 1:
+                if op == 0:
+                    limpaTela()
+                    cadastrarVoo(voos, dadosVoo)
             if op == 1:
                 limpaTela()
-                cadastrarVoo(voos, dadosVoo)
+                reservarVoo(voos, dadosVoo, reservas, reservante)
             elif op == 2:
-                limpaTela()
-                reservarVoo(voos, dadosVoo)
-            elif op == 3:
                 mostrarVoos(voos, dadosVoo)
-            elif op == 4:
+            elif op == 3:
                 print('Espero que a Hill Airplines tenha te ajudado. Volte sempre!')
-                menuInicial()
+                limpaTela()
+                break
+            elif admin == 1:
+                if op == 4:
+                    print('Mostrar reservas')
+                    mostrarReservas(reservas)
             else:
                 print('Opção inválida')
         except(ValueError, TypeError):
@@ -82,5 +100,8 @@ def menuPrincipal():
 
 
 
+
+
+# main --------------------------------------------------------------------------------------------------------------------------------
 
 menuInicial()
