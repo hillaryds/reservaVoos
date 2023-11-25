@@ -6,13 +6,18 @@ def cadastrarVoo(voos, dadosVoo):
         dadosVoo['Destino'] = str(input('Digite o destino do voo: '))
         dadosVoo['Assentos'] = int(input('Digite o número de assentos: '))
         dadosVoo['Reservas'] = 0
+        dadosVoo['Reservantes'] = []
         voos.append(dadosVoo.copy())
         op = ' '
-        while op not in 'SN':
-            op = str(input('Quer cadastrar mais algum voo? [S/N]')).strip().upper()[0]
-        if op == 'N':
+        while True:
+            op = str(input('Quer cadastrar mais algum voo? [S/N]')).strip().upper()
+            if op == '':
+                print('Responda com [S] ou [N]')
+                continue
+            if op in 'SIMNÃONAO':
+                break
+        if op in 'NÃONAO':
             break
-    
     
     return voos, dadosVoo
 
