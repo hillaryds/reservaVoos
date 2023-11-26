@@ -12,7 +12,7 @@ def limpaTela():
         sleep(1)
    
     print()
-    os.system('clear') # limpando tela
+    os.system('cls') # limpando tela
  
 def mostrarVoos( voos, dadosVoo):
     """
