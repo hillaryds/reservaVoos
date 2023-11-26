@@ -44,12 +44,12 @@ def mostrarVoos( voos, dadosVoo):
 
 def mostrarReservas(reservas):
     if len(reservas) == 0:
-        print('Nenhuma reserva foi registrada')
+        print('Nenhuma reserva foi registrada.')
     else:
         print('~-' * 15)
-        for keys, items in reservas.values():
-            print(f'{keys}: {items}')
-            print('--' * 15)
+        for reserva in reservas:
+            for keys, items in reserva.items():
+                print(f'{keys}: {items}')
+                print('--' * 15)
         print('~-' * 15)
-
 
