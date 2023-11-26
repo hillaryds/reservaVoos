@@ -5,22 +5,19 @@ def menuLogin(usuarios, dadosAdmin):
     print('~-'*30)
     while True: 
         try:  
-            nome = email = senha = ''  
-            while len(nome) == 0:
-                nome = str(input('Nome: ')).title().strip()
-                if len(nome) == 0: print('Digite algo.')
+            email = senha = ''  
             while len(email) == 0:
                 email = str(input('Email: ')).strip()
-                if len(nome) == 0: print('Digite algo.')
+                if len(email) == 0: print('Digite algo.')
             while len(senha) == 0:
                 senha = str(input('Senha: ')).strip()
-                if len(nome) == 0: print('Digite algo.')
-            if nome == dadosAdmin['Nome'] and email == dadosAdmin['Email'] and senha == dadosAdmin['Senha']: 
+                if len(senha) == 0: print('Digite algo.')
+            if email == dadosAdmin['Email'] and senha == dadosAdmin['Senha']: 
                 admin = 1 
                 login = True
                 break
             else:
-                if validaUsuario(nome, email, senha, usuarios) == True:
+                if validaUsuario(email, senha, usuarios) == True:
                     print('-'*60)
                     print('Login realizado com sucesso!') 
                     login = True
