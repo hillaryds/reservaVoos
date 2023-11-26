@@ -3,7 +3,7 @@
 # Variáveis globais --------------------------------------------------------------------------------------------------------
 dadosVoo = {}
 voos = []
-dadosAdmin = {'Email': 'admin@.com' , 'Senha': 'admin12'} #login administrador da Hill Airplines
+dadosAdmin = {'Email': 'admin@.admin' , 'Senha': 'admin12'} #login administrador da Hill Airplines
 dadosUsuario = {}
 usuarios = []
 reservas = [] # reservas de cada voo
@@ -59,7 +59,7 @@ def menuPrincipal(admin):
     from uteis import limpaTela , mostrarVoos, mostrarReservas
     from cadastra import cadastrarVoo
     from reserva import reservarVoo
-    print(admin)
+    #print(admin)
     while True:
         limpaTela()
         print('~-'*30)
@@ -109,4 +109,4 @@ def menuPrincipal(admin):
 
 # main --------------------------------------------------------------------------------------------------------------------------------
 
-menuPrincipal(1)
+menuInicial()
