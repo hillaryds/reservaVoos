@@ -17,7 +17,4 @@ def validaUsuario( email, senha, usuarios):
             break
         elif dadoUsuario['Email'] == email and dadoUsuario['Senha'] != senha:
             print('Senha incorreta!')
-        # elif dadoUsuario['Email'] != email and dadoUsuario['Senha'] != senha:
-        #     print('aa')
-        #     print('Dados incorretos!')
 
