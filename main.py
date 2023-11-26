@@ -3,7 +3,7 @@
 # Variáveis globais --------------------------------------------------------------------------------------------------------
 dadosVoo = {}
 voos = []
-dadosAdmin = {'Nome': 'Admin',  'Email': 'admin@.com' , 'Senha': 'admin12'} #login administrador da Hill Airplines
+dadosAdmin = {'Email': 'admin@.com' , 'Senha': 'admin12'} #login administrador da Hill Airplines
 dadosUsuario = {}
 usuarios = []
 reservas = [] # reservas de cada voo
@@ -75,11 +75,13 @@ def menuPrincipal(admin):
         print('-'*60)
         try:
             op = int(input('Escolha uma das opções a seguir: '))
-            if admin == 1:
-                if op == 0:
+
+            if op == 0:
+                if admin == 1:
                     limpaTela()
                     cadastrarVoo(voos, dadosVoo)
-            if op == 1:
+                else: print('Opção inválidaaa')
+            elif op == 1:
                 limpaTela()
                 reservarVoo(voos, dadosVoo, reservas, reservante)
             elif op == 2:
@@ -88,13 +90,15 @@ def menuPrincipal(admin):
                 print('Espero que a Hill Airplines tenha te ajudado. Volte sempre!')
                 limpaTela()
                 break
-            elif admin == 1:
-                if op == 4:
+            elif op == 4:
+                if admin == 1:
                     mostrarReservas(reservas)
+                else: print('Opção inválidaaa')
             else:
                 print('Opção inválida')
         except(ValueError, TypeError):
             print('Opção inválida!')
+
 
 
 
