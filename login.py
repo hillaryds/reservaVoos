@@ -4,10 +4,17 @@ def menuLogin(usuarios, dadosAdmin):
     print('Login'.center(60))
     print('~-'*30)
     while True: 
-        try:    
-            nome = str(input('Nome: ')).title().strip()
-            email = str(input('Email: ')).strip()
-            senha = str(input('Senha: ')).strip()
+        try:  
+            nome = email = senha = ''  
+            while len(nome) == 0:
+                nome = str(input('Nome: ')).title().strip()
+                if len(nome) == 0: print('Digite algo.')
+            while len(email) == 0:
+                email = str(input('Email: ')).strip()
+                if len(nome) == 0: print('Digite algo.')
+            while len(senha) == 0:
+                senha = str(input('Senha: ')).strip()
+                if len(nome) == 0: print('Digite algo.')
             if nome == dadosAdmin['Nome'] and email == dadosAdmin['Email'] and senha == dadosAdmin['Senha']: 
                 admin = 1 
                 login = True
@@ -25,9 +32,14 @@ def menuLogin(usuarios, dadosAdmin):
                     print('-'*60)
                     print('Login inválido! ')
                     op = ' '
-                    while op not in 'SN':
-                        op = str(input('Deseja tentar realizar o login novamente? [S/N]')).strip().upper()[0]
-                    if op == 'N':
+                    while True:
+                        op = str(input('Quer realizar o login novamente? [S/N]')).strip().upper()
+                        if op == '':
+                            print('Responda com [S] ou [N]')
+                            continue
+                        if op in 'SIMNÃONAO':
+                            break
+                    if op in 'NÃONAO':
                         break
                     print('-'*60)
         except(ValueError, TypeError):
