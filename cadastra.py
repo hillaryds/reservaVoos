@@ -31,27 +31,27 @@ def menuCadastroUsuario(usuarios, dadosUsuario):
     print('~-'*30)
     while True:
         try:
-            nome = str(input('Digite seu primeiro nome: '))
-            if nome.strip != '':
-                dadosUsuario['Nome'] = nome.title().strip().split()[0]
-                print(f'Seu nome de usuário é: {dadosUsuario["Nome"]}')
-                email = str(input('Digite um eail válido: ')).strip()
-                if validaEmail(email, usuarios) == True:
-                    dadosUsuario['Email'] = email
-                    senha = str(input('Digite uma senha com 8 ou mais caracteres: '))
-                    if len(senha.strip()) >= 8:
-                        dadosUsuario['Senha'] = senha
-                        dadosUsuario['Reservas'] = 0 # adcionar reservas realcionadas ao usuário.
-                        usuarios.append(dadosUsuario.copy())
-                        break
-                    else:
-                        print('-' * 60)
-                        print('Senha inválida')
-                        break
+            # nome = str(input('Digite seu primeiro nome: '))
+            # if nome.strip != '':
+            #     dadosUsuario['Nome'] = nome.title().strip().split()[0]
+            #     print(f'Seu nome de usuário é: {dadosUsuario["Nome"]}')
+            email = str(input('Digite um email válido: ')).strip()
+            if validaEmail(email, usuarios) == True:
+                dadosUsuario['Email'] = email
+                senha = str(input('Digite uma senha com 8 ou mais caracteres: '))
+                if len(senha.strip()) >= 8:
+                    dadosUsuario['Senha'] = senha
+                    dadosUsuario['Reservas'] = 0 # adcionar reservas realcionadas ao usuário.
+                    usuarios.append(dadosUsuario.copy())
+                    break
                 else:
                     print('-' * 60)
-                    print('Email inválido ou já cadastrado!')
+                    print('Senha inválida')
                     break
+            else:
+                print('-' * 60)
+                print('Email inválido ou já cadastrado!')
+                break
         except(ValueError, TypeError): 
             print('Opção inválida!')
 
