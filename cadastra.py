@@ -76,11 +76,13 @@ def menuCadastroUsuario(usuarios, dadosUsuario):
     """
     """
     from valida import validaEmail
-    print('~-'*30)
-    print(' Cadastro de Usuário'.center(60))
-    print('~-'*30)
+    print('~-'*50)
+    print(' Cadastro de Usuário'.center(100))
+    print('~-'*50)
     while True:
         try:
+            print('O Email válido possui [@ obrigatório; Terminar com .com/.org/.br; não possuir espaços].')
+            print('O sistema fará as correções possíveis.')
             email = str(input('Digite um email válido: ')).strip()
             if validaEmail(email, usuarios) == True:
                 dadosUsuario['Email'] = email
