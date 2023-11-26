@@ -90,7 +90,6 @@ def menuPrincipal(admin):
                 break
             elif admin == 1:
                 if op == 4:
-                    print('Mostrar reservas')
                     mostrarReservas(reservas)
             else:
                 print('Opção inválida')
