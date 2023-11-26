@@ -10,19 +10,14 @@ def validaEmail(email, usuarios):
                 if contEmail == 0: return(True)
 
 
-def validaUsuario(nome, email, senha, usuarios):
+def validaUsuario( email, senha, usuarios):
     for dadoUsuario in usuarios:
-        if dadoUsuario['Nome'] == nome and dadoUsuario['Email'] == email and dadoUsuario['Senha'] == senha:
+        if dadoUsuario['Email'] == email and dadoUsuario['Senha'] == senha:
             return(True)
-        if dadoUsuario['Nome'] == nome and dadoUsuario['Email'] == email and dadoUsuario['Senha'] != senha:
+            break
+        elif dadoUsuario['Email'] == email and dadoUsuario['Senha'] != senha:
             print('Senha incorreta!')
-        elif dadoUsuario['Nome'] == nome and dadoUsuario['Email'] != email and dadoUsuario['Senha'] != senha:
-            print('Dados incorretos!')
-        elif dadoUsuario['Nome'] != nome and dadoUsuario['Email'] != email and dadoUsuario['Senha'] != senha:
-            print('Dados incorretos!')
+        # elif dadoUsuario['Email'] != email and dadoUsuario['Senha'] != senha:
+        #     print('aa')
+        #     print('Dados incorretos!')
 
-                
-            
-# usuarios = [{'Email': 'hill@.br'}]
-# email = str(input('Email: '))
-# validaEmail(email, usuarios)
