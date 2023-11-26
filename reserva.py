@@ -8,7 +8,7 @@ def reservarVoo(voos, dadosVoo, reservas, reservante):
                 id = int(input('Digite o ID do voo que deseja reservar: [5410 para sair]'))
                 if id == 5410:
                     break
-                elif id < len(voos):
+                elif id < len(voos) and id >= 0:
                     print(f'+ Reserva do voo {voos[id]["Código"]}: ')
                     if voos[id]['Assentos'] > 0:
                         while True:
