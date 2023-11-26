@@ -38,6 +38,8 @@ def mostrarVoos( voos, dadosVoo):
                 print(f'{str(dado):<20}', end ='')
             print()
         print('~-' * 35)
+    print('Pressione Enter para continuar.')
+    input()
 
 
 
@@ -46,10 +48,15 @@ def mostrarReservas(reservas):
     if len(reservas) == 0:
         print('Nenhuma reserva foi registrada.')
     else:
+        print('Reservas')
         print('~-' * 15)
+        print(f'{"Código":<20}{"Reservante":<20}')
+        print('--' * 15)
         for reserva in reservas:
             for keys, items in reserva.items():
-                print(f'{keys}: {items}')
+                print(f'{keys:<20}{items:<20}')
                 print('--' * 15)
         print('~-' * 15)
+    print('Pressione Enter para continuar.')
+    input()
 
