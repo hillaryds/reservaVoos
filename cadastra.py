@@ -2,11 +2,11 @@ def cadastrarVoo(voos, dadosVoo):
     print('Cadastra')
     while True:
         print('-' * 30) 
+        
         dadosVoo['Nome'] = str(input('Digite o número do voo: '))
         dadosVoo['Destino'] = str(input('Digite o destino do voo: '))
         dadosVoo['Assentos'] = int(input('Digite o número de assentos: '))
         dadosVoo['Reservas'] = 0
-        dadosVoo['Reservantes'] = []
         voos.append(dadosVoo.copy())
         op = ' '
         while True:
@@ -34,8 +34,8 @@ def menuCadastroUsuario(usuarios, dadosUsuario):
             nome = str(input('Digite seu primeiro nome: '))
             if nome.strip != '':
                 dadosUsuario['Nome'] = nome.title().strip().split()[0]
-                print(dadosUsuario['Nome'])
-                email = str(input('Digite o destino do voo: ')).strip()
+                print(f'Seu nome de usuário é: {dadosUsuario["Nome"]}')
+                email = str(input('Digite um eail válido: ')).strip()
                 if validaEmail(email, usuarios) == True:
                     dadosUsuario['Email'] = email
                     senha = str(input('Digite uma senha com 8 ou mais caracteres: '))
