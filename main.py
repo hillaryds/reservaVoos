@@ -28,15 +28,15 @@ def menuInicial():
             if op == 1:
                 limpaTela()
                 logou = menuLogin(usuarios, dadosAdmin)
-                print(logou)
+                #print(logou)
                 if logou[0] == True:
                     if logou[1] == 1:
-                        print('logou')
+                        #print('logou')
                         menuPrincipal(1)
                     else:
                         menuPrincipal(0)
-                else:
-                    print('n logou')
+                # else:
+                #     print('n logou')
                 logou.clear()
             elif op == 2:
                 limpaTela()
@@ -85,6 +85,7 @@ def menuPrincipal(admin):
                 limpaTela()
                 reservarVoo(voos, dadosVoo, reservas, reservante)
             elif op == 2:
+                limpaTela()
                 mostrarVoos(voos, dadosVoo)
             elif op == 3:
                 print('Espero que a Hill Airplines tenha te ajudado. Volte sempre!')
@@ -92,6 +93,7 @@ def menuPrincipal(admin):
                 break
             elif op == 4:
                 if admin == 1:
+                    limpaTela()
                     mostrarReservas(reservas)
                 else: print('Opção inválidaaa')
             else:
@@ -107,4 +109,4 @@ def menuPrincipal(admin):
 
 # main --------------------------------------------------------------------------------------------------------------------------------
 
-menuInicial()
+menuPrincipal(1)
