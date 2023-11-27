@@ -1,4 +1,10 @@
 def menuLogin(usuarios, dadosAdmin):
+    """
+    Menu de login
+    + param usuarios - recebe as lista usuarios;
+    + param dadosAdmin - recebe o dicionário dadosAdmin;
+    + return - retorna uma lista com as variáveis login e admin.
+    """
     from valida import validaUsuario
     print('~-'*30)
     print('Login'.center(60))
