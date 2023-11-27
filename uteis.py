@@ -45,6 +45,11 @@ def mostrarVoos( voos, dadosVoo):
 
 
 def mostrarReservas(reservas):
+    """
+    Mostra as reservas
+    + param reservas  - recebe a lista reservas;
+    + return - sem retorno.
+    """
     if len(reservas) == 0:
         print('Nenhuma reserva foi registrada.')
     else:
