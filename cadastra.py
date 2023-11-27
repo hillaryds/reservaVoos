@@ -1,5 +1,12 @@
 def cadastrarVoo(voos, dadosVoo):
-    print('Cadastra')
+    """
+    Cadastra os voos 
+    + param voos - recebe a lista voos;
+    + param dadosVoo - recebe o dicionário dadosVoo:
+    + return - retorna voos e dadosVoo
+    """
+
+    print('Cadastrar Voos')
     while True:
         print('-' * 30) 
         codigoVoo = destino = assentos = ''
@@ -29,7 +36,7 @@ def cadastrarVoo(voos, dadosVoo):
                     if len(assentos) == 0: print('Digite algo.')
                 
                 if assentos.isnumeric():
-                    if int(assentos):
+                    if int(assentos) > 0:
                         dadosVoo['Assentos'] = int(assentos)
                         break
                     else: 
@@ -37,7 +44,7 @@ def cadastrarVoo(voos, dadosVoo):
                         assentos = ''
                         continue
                 else: 
-                    print('O valor digitado não é um número inteiro')
+                    print('O valor digitado não é um número inteiro positivo')
                     assentos = ''
 
             dadosVoo['Reservas'] = 0
@@ -74,6 +81,10 @@ def cadastrarVoo(voos, dadosVoo):
 
 def menuCadastroUsuario(usuarios, dadosUsuario):
     """
+    Cadastra os usuários
+    + param usuarios - recebe a lista de usuarios
+    + param dadosUsuario - recebe o dicionário dadosUsuario
+    + return - retorna usuarios e dadosUsuario.
     """
     from valida import validaEmail
     print('~-'*50)
