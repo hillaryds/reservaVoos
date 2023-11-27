@@ -1,4 +1,12 @@
 def reservarVoo(voos, dadosVoo, reservas, reservante):
+    """
+    Reserva os voos
+    + param voos - recebe a lista voos;
+    + param dadosVoo - recebe o dicionário dadosVoo;
+    + param reservas - recebe a lista reservas;
+    + param reservante - recebe os dados do reservante.
+    + return - retorna voos, dadosVoo e reservas.
+    """
     from uteis import mostrarVoos
     mostrarVoos(voos, dadosVoo)
     while True:
