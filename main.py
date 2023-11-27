@@ -2,16 +2,17 @@
 
 # Variáveis globais --------------------------------------------------------------------------------------------------------
 dadosVoo = {}
-voos = []
-dadosAdmin = {'Email': 'admin@.admin' , 'Senha': 'admin12'} #login administrador da Hill Airplines
+voos = [] # voos cadastrados
+dadosAdmin = {'Email': 'admin@.admin' , 'Senha': 'admin12'} #login administrador da Hill Airlines
 dadosUsuario = {}
-usuarios = []
+usuarios = [] # usuários cadastrados
 reservas = [] # reservas de cada voo
 reservante = {}
 # Funções de Menus ----------------------------------------------------------------------------------------------------------
 def menuInicial():
     while True:
         """
+        Menu inicial
         """
         from uteis import limpaTela
         from cadastra import menuCadastroUsuario
@@ -55,6 +56,7 @@ def menuInicial():
 
 def menuPrincipal(admin):
     """
+    Menu principal
     """
     from uteis import limpaTela , mostrarVoos, mostrarReservas
     from cadastra import cadastrarVoo
